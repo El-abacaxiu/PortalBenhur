@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal de Estudos — Benhur (Jarvis)</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Portal de Estudos — Benhur <span class="badge">Jarvis Mode</span></div>
+    <div class="actions">
+      <button id="copyLinksBtn" class="btn ghost">Copiar todos links</button>
+      <button id="exportBtn" class="btn ghost">Exportar JSON</button>
+      <button id="importBtn" class="btn ghost">Importar JSON</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="logo">💜 Benhur Academy</div>
+      <input id="search" placeholder="Pesquisar: python, js, curso..." class="search" />
+      <a class="navlink active" data-page="home">Início</a>
+      <a class="navlink" data-page="nivel1">Nível 1 — Iniciante</a>
+      <a class="navlink" data-page="nivel2">Nível 2 — Intermediário</a>
+      <a class="navlink" data-page="nivel3">Nível 3 — Profissional</a>
+      <a class="navlink" data-page="cadernos">Cadernos Virtuais</a>
+      <a class="navlink" data-page="projetos">Projetos & Deploy</a>
+      <a class="navlink" data-page="exercicios">Exercícios</a>
+      <a class="navlink" data-page="cursos">Cursos</a>
+      <a class="navlink" data-page="consultas">Consultas</a>
+      <div class="sidebar-foot small">Curso caseiro • 3 níveis • 4 meses cada • Tudo grátis</div>
+    </nav>
+
+    <main class="content">
+      <!-- HOME -->
+      <section id="home" class="page active">
+        <h1>⚡ Portal de Estudos do Benhur</h1>
+        <p class="lead">Tudo organizado e simples: cursos, exercícios, desafios por nível, cadernos e projetos. Use o menu à esquerda.</p>
+
+        <div class="card">
+          <h3>Sumário rápido</h3>
+          <ul class="summary">
+            <li>Nível 1 — Iniciante (básico) ✅</li>
+            <li>Nível 2 — Intermediário (projetos) ✅</li>
+            <li>Nível 3 — Profissional (front+back) ✅</li>
+            <li>Cadernos virtuais: Python & JavaScript ✅</li>
+            <li>Projetos prontos e ferramentas de deploy ✅</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- NÍVEL 1 -->
+      <section id="nivel1" class="page">
+        <h1>🟩 Nível 1 — Iniciante</h1>
+        <p class="muted">Objetivo: aprender lógica e o básico de Python + JavaScript — 4 meses sugeridos.</p>
+
+        <div class="card">
+          <h3>Cursos principais (Fácil)</h3>
+          <ul id="n1-cursos" class="link-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Exercícios fáceis</h3>
+          <ul id="n1-exs" class="link-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Desafios (Iniciante)</h3>
+          <div id="n1-desafios" class="challenges"></div>
+        </div>
+      </section>
+
+      <!-- NÍVEL 2 -->
+      <section id="nivel2" class="page">
+        <h1>🟦 Nível 2 — Intermediário</h1>
+        <p class="muted">Objetivo: criar projetos reais, APIs simples e lógica avançada.</p>
+
+        <div class="card">
+          <h3>Cursos (Intermediário)</h3>
+          <ul id="n2-cursos" class="link-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Exercícios médios</h3>
+          <ul id="n2-exs" class="link-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Desafios (Médio)</h3>
+          <div id="n2-desafios" class="challenges"></div>
+        </div>
+      </section>
+
+      <!-- NÍVEL 3 -->
+      <section id="nivel3" class="page">
+        <h1>🟧 Nível 3 — Profissional</h1>
+        <p class="muted">Objetivo: aplicações completas (front + back), banco de dados e deploy.</p>
+
+        <div class="card">
+          <h3>Cursos (Avançado)</h3>
+          <ul id="n3-cursos" class="link-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Desafios Profissionais</h3>
+          <div id="n3-desafios" class="challenges"></div>
+        </div>
+      </section>
+
+      <!-- CADERNOS -->
+      <section id="cadernos" class="page">
+        <h1>🟪 Cadernos Virtuais (Python & JS)</h1>
+        <div class="card">
+          <h3>Python</h3>
+          <ul class="link-list">
+            <li><a href="https://replit.com/languages/python3" target="_blank">Replit Python</a></li>
+            <li><a href="https://colab.research.google.com" target="_blank">Google Colab</a></li>
+            <li><a href="https://mybinder.org/" target="_blank">Jupyter (MyBinder)</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>JavaScript</h3>
+          <ul class="link-list">
+            <li><a href="https://codepen.io/pen/" target="_blank">CodePen</a></li>
+            <li><a href="https://jsfiddle.net" target="_blank">JSFiddle</a></li>
+            <li><a href="https://replit.com/languages/nodejs" target="_blank">Replit Node.js</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Caderno (Editor)</h3>
+          <textarea id="noteArea" placeholder="Escreve tuas notas aqui..."></textarea>
+          <div class="note-actions">
+            <button id="saveNote" class="btn">Salvar agora</button>
+            <button id="downloadNote" class="btn ghost">Baixar .txt</button>
+            <button id="clearNote" class="btn ghost">Limpar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section id="projetos" class="page">
+        <h1>🟫 Projetos & Deploy</h1>
+        <div class="card">
+          <h3>Projetos prontos pra fazer (sugestões)</h3>
+          <ul class="link-list" id="projetos-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Plataformas de deploy (grátis)</h3>
+          <ul class="link-list">
+            <li><a href="https://railway.app" target="_blank">Railway</a></li>
+            <li><a href="https://render.com" target="_blank">Render</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EXERCÍCIOS -->
+      <section id="exercicios" class="page">
+        <h1>🟦 Exercícios</h1>
+        <div class="card">
+          <h3>Python</h3>
+          <ul id="exs-py" class="link-list"></ul>
+        </div>
+        <div class="card">
+          <h3>JavaScript</h3>
+          <ul id="exs-js" class="link-list"></ul>
+        </div>
+      </section>
+
+      <!-- CURSOS -->
+      <section id="cursos" class="page">
+        <h1>📘 Cursos</h1>
+        <div class="card">
+          <h3>Principais</h3>
+          <ul id="cursos-list" class="link-list"></ul>
+        </div>
+      </section>
+
+      <!-- CONSULTAS -->
+      <section id="consultas" class="page">
+        <h1>📗 Consultas Rápidas</h1>
+        <div class="card">
+          <ul id="consultas-list" class="link-list"></ul>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>Feito por Jarvis — Salva essa página e usa como teu hub oficial ⚡📚</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- import modal -->
+  <div id="importModal" class="modal">
+    <div class="modal-box">
+      <h3>Importar JSON</h3>
+      <input type="file" id="importFile" accept=".json" />
+      <div class="modal-actions">
+        <button id="closeImport" class="btn ghost">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
